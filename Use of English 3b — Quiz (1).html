@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Use of English 3b — Quiz</title>
+<style>
+:root{--bg:#f6f1f8;--card:#fff;--tx:#2a2230;--mu:#7a6e83;--pr:#8e2f7c;--g1:#8e2f7c;--g2:#d04a7f;--ok:#1f8a4c;--okb:#e4f6ec;--no:#c0392b;--nob:#fdeceb;--bd:#e9e0ee;--sh:0 6px 24px rgba(110,40,100,.10);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150f18;--card:#221a27;--tx:#f1eaf4;--mu:#a99bb3;--pr:#e08fd0;--g1:#a8409a;--g2:#d9588f;--ok:#5fd18e;--okb:#16301f;--no:#ff8a7d;--nob:#3a1d1a;--bd:#3a2e41;--sh:0 6px 24px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#150f18;--card:#221a27;--tx:#f1eaf4;--mu:#a99bb3;--pr:#e08fd0;--g1:#a8409a;--g2:#d9588f;--ok:#5fd18e;--okb:#16301f;--no:#ff8a7d;--nob:#3a1d1a;--bd:#3a2e41;--sh:0 6px 24px rgba(0,0,0,.35)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+#app{max-width:620px;margin:0 auto;padding:14px 14px 40px;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.hero{background:linear-gradient(135deg,var(--g1),var(--g2) 65%,#f2975f);color:#fff;border-radius:22px;padding:26px 22px;margin-bottom:14px;box-shadow:var(--sh);text-align:center}
+.hero .em{font-size:44px;line-height:1}
+.hero h1{margin:8px 0 2px;font-size:28px;letter-spacing:-.3px;color:#fff}
+.hero p{margin:0;opacity:.9;font-size:15px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;margin-bottom:14px;box-shadow:var(--sh)}
+h1{font-size:24px;margin:0 0 6px}h2{font-size:18px;margin:0 0 10px}
+.mu{color:var(--mu);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chips span{font-size:13px;font-weight:600;padding:4px 11px;border-radius:20px;background:var(--bg);color:var(--pr);border:1px solid var(--bd)}
+input[type=text]{width:100%;padding:14px 16px;font-size:17px;border:2px solid var(--bd);border-radius:14px;background:var(--bg);color:var(--tx);margin:8px 0 14px;transition:border-color .2s,box-shadow .2s}
+input:focus{outline:none;border-color:var(--pr);box-shadow:0 0 0 4px rgba(142,47,124,.15)}
+.btn{display:block;width:100%;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:14px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(142,47,124,.28);transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.sec{background:transparent;color:var(--pr);border:2px solid var(--pr);box-shadow:none;margin-top:10px}
+.bar{height:10px;background:var(--bd);border-radius:8px;overflow:hidden;margin:8px 0 16px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:8px;transition:width .4s ease}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.3px;color:var(--pr);background:var(--bg);border-radius:20px;padding:3px 11px;margin-bottom:10px}
+.q{font-size:20px;font-weight:700;line-height:1.35;margin:0 0 14px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;margin:9px 0;font-size:17px;border:2px solid var(--bd);border-radius:14px;background:var(--card);color:var(--tx);cursor:pointer;transition:border-color .15s,transform .15s,background .15s}
+.opt:not(:disabled):hover{border-color:var(--pr);transform:translateY(-1px)}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;background:var(--bg);color:var(--pr)}
+.opt.ok{border-color:var(--ok);background:var(--okb);animation:pop .35s}.opt.ok .L{background:var(--ok);color:#fff}
+.opt.no{border-color:var(--no);background:var(--nob);animation:shake .35s}.opt.no .L{background:var(--no);color:#fff}
+.opt:disabled{cursor:default}
+.fb{border-radius:14px;padding:14px 16px;margin:14px 0;font-size:15px;animation:fade .3s}
+.fb.ok{background:var(--okb);border:1px solid var(--ok)}.fb.no{background:var(--nob);border:1px solid var(--no)}
+.fb b{display:block;margin-bottom:4px;font-size:16px}
+.res{text-align:center}.res .em{font-size:48px;line-height:1.1}
+.ring{position:relative;width:150px;height:150px;margin:14px auto 8px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:10;stroke-linecap:round}
+.ring .tr{stroke:var(--bd)}.ring .fg{stroke:var(--pr);transition:stroke-dasharray 1s ease}
+.rn{position:absolute;inset:0;display:grid;place-items:center;font-size:40px;font-weight:800;color:var(--pr)}
+.rn small{font-size:18px;color:var(--mu);font-weight:600}
+.rn{display:flex;align-items:center;justify-content:center}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:15px}
+.row:last-child{border:0}
+.pill{font-weight:700;white-space:nowrap}
+.tp .row{border:0;padding:8px 0 4px}
+.tb{height:8px;background:var(--bd);border-radius:6px;overflow:hidden;margin-bottom:6px}
+.tb i{display:block;height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px}
+details{border-bottom:1px solid var(--bd);padding:11px 0}
+details:last-child{border:0}
+summary{cursor:pointer;display:flex;justify-content:space-between;gap:10px;font-weight:600}
+.wr{font-size:14px;margin:8px 0 0;padding:10px 12px;border-radius:10px;background:var(--nob)}
+.good{color:var(--ok)}.bad{color:var(--no)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var T={PS:"Past Simple / Continuous",UT:"used to / would",WF:"-ing / -ed",CMP:"Сравнения"};
+var Q=[
+["PS","We ___ the hotel at 11:30 yesterday morning.",["were reaching","reached","reach"],1,"Действие закончилось в конкретное время в прошлом (11:30 вчера). Для этого нужен Past Simple: reached."],
+["PS","The sun ___ brightly when we arrived.",["shone","was shining","is shining"],1,"Это фон, описание обстановки, которая шла в момент действия. Фон выражаем Past Continuous: was shining."],
+["PS","We dropped off our bags and ___ straight to the water park.",["went","were going","go"],0,"Действия идут одно за другим (сначала оставили сумки, потом пошли). Цепочку действий в прошлом ставим в Past Simple: went."],
+["PS","My parents ___ juice while we ___ in the pool.",["drank / swam","were drinking / were swimming","were drinking / swam"],1,"Два действия шли одновременно, оба были в процессе. Для этого оба глагола в Past Continuous (союз while)."],
+["PS","As I ___ out of the pool, I heard someone call my name.",["got","get","was getting"],2,"Длительное действие (вылезала из бассейна) было прервано коротким (услышала). Длительное → Past Continuous, короткое → Past Simple."],
+["PS","I ___ a theatre performance at 5 o’clock yesterday.",["watched","was watching","am watching"],1,"В 5 часов вчера действие было в процессе, то есть шло именно в этот момент. Это Past Continuous: was watching."],
+["PS","When ___ you ___ Aidar?",["did / see","were / seeing","do / see"],0,"Вопрос про законченное действие в прошлом: «Когда ты видел Айдара?» Past Simple с did: When did you see…?"],
+["PS","He bought the theatre tickets and then he ___ shopping.",["was going","went","goes"],1,"Два действия подряд, одно за другим: купил билеты, потом пошёл. Оба в Past Simple: went."],
+["PS","No, I was driving to the concert when I ___ a flat tyre.",["got","was getting","get"],0,"Короткое действие прервало длинное (ехал → пробил колесо). Длинное: was driving, короткое: Past Simple got."],
+["UT","Nurlybek ___ have long hair, but now he has short hair.",["would","used to","was"],1,"have здесь описывает состояние, а не повторяющееся действие. Для прошлых состояний можно только used to (would нельзя)."],
+["UT","As a child, I ___ visit my aunt in the countryside every summer.",["only used to","only would","used to or would (both)"],2,"Повторяющееся действие в прошлом (каждое лето) можно выразить и used to, и would. Оба варианта правильные."],
+["UT","I ___ to Almaty last week.",["went","used to go","would go"],0,"Есть конкретное время (last week), и это было один раз. Used to и would для одного случая не подходят, нужен Past Simple: went."],
+["UT","My brother ___ love going to the cinema; now he prefers the theatre.",["would","used to","was"],1,"love — это состояние (глагол чувств), поэтому would нельзя. Правильно: used to."],
+["WF","The trip to Chundzha was very ___. (tire)",["tired","tiring","tire"],1,"Описываем, какой была поездка (что за вещь), поэтому берём форму на -ing: tiring (утомительная)."],
+["WF","The view from the hotel room was ___. (amaze)",["amazing","amazed","amaze"],0,"Описываем вид, то есть предмет, а не чувства человека. Значит -ing: amazing (потрясающий)."],
+["WF","I’m really ___ about going to the water park. (excite)",["exciting","excited","excite"],1,"I’m — это чувства человека. Чувства выражаем формой на -ed: excited (взволнован)."],
+["WF","The play had a complicated plot and Berik was ___. (confuse)",["confusing","confused","confuse"],1,"Берик испытывал чувство (запутался), поэтому -ed: confused. Если бы мы описывали сюжет, было бы confusing."],
+["CMP","Rock music is ___ energetic than classical music.",["much","more","most"],1,"Energetic — длинное прилагательное. Сравнение: more + прилагательное + than."],
+["CMP","The Royal Albert Hall isn’t ___ big as the Barbican Concert Hall.",["less","than","as"],2,"Конструкция not as … as означает «не такой … как». Нужно слово as."],
+["CMP","Using the Internet is quicker ___ reading a newspaper.",["as","than","then"],1,"После сравнительной степени с -er (quicker) всегда идёт than. Не путай с then («потом»)."],
+["CMP","London is ___ bigger than Semey.",["much","less","as"],0,"much + сравнительная степень показывает большую разницу. «Less bigger» сказать нельзя."]
+];
+var S={name:"",i:0,a:[],id:""};
+var app=document.getElementById("app");
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":String(s);return d.innerHTML}
+function sc(a){var n=0;for(var k=0;k<Q.length;k++)if(a[k]===Q[k][3])n++;return n}
+function topicScores(a){var o={};for(var k=0;k<Q.length;k++){var t=Q[k][0];o[t]=o[t]||[0,0];o[t][1]++;if(a[k]===Q[k][3])o[t][0]++}return o}
+function getDb(){try{if(window.claude&&claude.use)return claude.use("db")}catch(e){}return Promise.resolve(null)}
+function getUser(){try{if(window.claude&&claude.use)return claude.use("user")}catch(e){}return Promise.resolve(null)}
+
+function start(){
+ S={name:"",i:0,a:[],id:"r"+Date.now().toString(36)+Math.random().toString(36).slice(2,7)};
+ app.innerHTML='<div class="hero"><div class="em">📝</div><h1>Use of English 3b</h1><p>Module 3 · проверь себя</p></div><div class="card"><div class="chips"><span>Past Simple / Continuous</span><span>used to / would</span><span>-ing / -ed</span><span>Comparisons</span></div>'+
+ '<p>'+Q.length+' вопросов. После каждого ответа ты сразу увидишь, верно или нет, и объяснение.</p>'+
+ '<label for="nm"><b>Твои имя и фамилия</b></label><input id="nm" type="text" maxlength="40" placeholder="Например: Айдана Серикова" autocomplete="off">'+
+ '<button class="btn" id="go">Начать</button></div><div id="tbox"></div>';
+ var inp=document.getElementById("nm");
+ function go(){var v=inp.value.trim();if(v.length<2){inp.style.borderColor="var(--no)";inp.focus();return}S.name=v;S.i=0;S.a=[];ask()}
+ document.getElementById("go").onclick=go;
+ inp.onkeydown=function(e){if(e.key==="Enter")go()};
+ getUser().then(function(u){
+  var own=false;try{own=!!(u&&u.isOwner&&u.isOwner())}catch(e){}
+  if(own)document.getElementById("tbox").innerHTML='<button class="btn sec" id="tb">Результаты учеников (для учителя)</button>',document.getElementById("tb").onclick=teacher;
+ });
+}
+
+function ask(){
+ var q=Q[S.i],p=Math.round(S.i/Q.length*100);
+ var h='<div class="card"><div class="mu">'+esc(S.name)+' · вопрос '+(S.i+1)+' из '+Q.length+'</div><div class="bar"><i style="width:'+p+'%"></i></div>'+
+ '<span class="tag">'+T[q[0]]+'</span><p class="q">'+esc(q[1])+'</p><div id="opts">';
+ for(var k=0;k<q[2].length;k++)h+='<button class="opt" data-k="'+k+'"><span class="L">'+"ABCD".charAt(k)+'</span><span>'+esc(q[2][k])+'</span></button>';
+ h+='</div><div id="fb"></div></div>';
+ app.innerHTML=h;window.scrollTo(0,0);
+ var bs=app.querySelectorAll(".opt");
+ for(var j=0;j<bs.length;j++)bs[j].onclick=function(){pick(+this.getAttribute("data-k"))};
+}
+
+function pick(k){
+ var q=Q[S.i],ok=k===q[3];S.a[S.i]=k;
+ var bs=app.querySelectorAll(".opt");
+ for(var j=0;j<bs.length;j++){bs[j].disabled=true;if(j===q[3])bs[j].classList.add("ok");else if(j===k)bs[j].classList.add("no")}
+ var last=S.i===Q.length-1;
+ document.getElementById("fb").innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"✅ Верно!":"❌ Неверно. Правильный ответ: "+esc(q[2][q[3]]))+'</b>'+esc(q[4])+'</div><button class="btn" id="nx">'+(last?"Завершить":"Дальше")+'</button>';
+ document.getElementById("nx").scrollIntoView({block:"nearest",behavior:"smooth"});
+ document.getElementById("nx").onclick=function(){if(last)finish();else{S.i++;ask()}};
+}
+
+function finish(){
+ var n=sc(S.a),ts=topicScores(S.a),pc=Math.round(n/Q.length*100),em=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"👍":"💪",tx=pc>=90?"Отлично!":pc>=70?"Хороший результат!":pc>=50?"Неплохо, есть что повторить":"Повтори темы и попробуй ещё раз";
+ var rec={name:S.name,score:n,total:Q.length,answers:S.a,ts:Date.now()};
+ var h='<div class="card res"><div class="em">'+em+'</div><h1>'+esc(S.name)+'</h1><div class="mu">'+tx+'</div><div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="tr"/><circle cx="60" cy="60" r="54" class="fg" style="stroke-dasharray:'+(pc*3.393).toFixed(1)+' 339.3"/></svg><div class="rn">'+n+'<small>/'+Q.length+'</small></div></div><div class="mu" id="sv">Отправляем результат учителю…</div></div>'+
+ '<div class="card"><h2>По темам</h2>';
+ for(var t in ts)h+='<div class="tp"><div class="row"><span>'+T[t]+'</span><span class="pill">'+ts[t][0]+' / '+ts[t][1]+'</span></div><div class="tb"><i style="width:'+Math.round(ts[t][0]/ts[t][1]*100)+'%"></i></div></div>';
+ h+='</div>';
+ var w=[];for(var k=0;k<Q.length;k++)if(S.a[k]!==Q[k][3])w.push(k);
+ h+='<div class="card"><h2>'+(w.length?"Разбор ошибок":"Ошибок нет, отлично!")+'</h2>';
+ w.forEach(function(k){var q=Q[k];h+='<details><summary><span>'+(k+1)+'. '+esc(q[1])+'</span></summary><div class="wr"><span class="bad">Твой ответ: '+esc(q[2][S.a[k]])+'</span><br><span class="good">Правильно: '+esc(q[2][q[3]])+'</span><br>'+esc(q[4])+'</div></details>'});
+ h+='</div><button class="btn sec" id="again">Пройти ещё раз</button>';
+ app.innerHTML=h;window.scrollTo(0,0);
+ document.getElementById("again").onclick=start;
+ var done=false;
+ var timer=setTimeout(function(){if(!done)msg(false)},10000);
+ function msg(ok){done=true;clearTimeout(timer);var e=document.getElementById("sv");if(e)e.textContent=ok?"Результат отправлен учителю ✓":"Не удалось отправить результат. Сделай скриншот этой страницы и покажи учителю."}
+ getDb().then(function(db){
+  if(!db){msg(false);return}
+  return db.collection("results").doc(S.id).set(rec).then(function(){msg(true)});
+ }).catch(function(){msg(false)});
+}
+
+function teacher(){
+ app.innerHTML='<div class="card"><h1>Результаты</h1><p class="mu" id="tm">Загрузка…</p></div><div id="tl"></div><button class="btn sec" id="bk">Назад</button>';
+ document.getElementById("bk").onclick=start;
+ getDb().then(function(db){
+  if(!db){document.getElementById("tm").textContent="База данных недоступна.";return}
+  var to=setTimeout(function(){var e=document.getElementById("tm");if(e&&e.textContent==="Загрузка…")e.textContent="Пока ничего не пришло."},10000);
+  db.collection("results").onSnapshot(function(snap){
+   clearTimeout(to);
+   var rows=snap.docs.map(function(d){return d.data()}).filter(Boolean).sort(function(a,b){return (b.ts||0)-(a.ts||0)});
+   document.getElementById("tm").textContent="Прохождений: "+rows.length+(rows.length?" · средний балл: "+(rows.reduce(function(s,r){return s+r.score},0)/rows.length).toFixed(1)+" из "+Q.length:"");
+   var hard=Q.map(function(q,k){var w=0;rows.forEach(function(r){if(r.answers&&r.answers[k]!==q[3])w++});return[k,w]}).sort(function(a,b){return b[1]-a[1]}).slice(0,3);
+   var h="";
+   if(rows.length){
+    h+='<div class="card"><h2>Самые сложные вопросы</h2>';
+    hard.forEach(function(x){h+='<div class="row"><span>'+(x[0]+1)+'. '+esc(Q[x[0]][1])+'</span><span class="pill bad">'+x[1]+' ош.</span></div>'});
+    h+='</div><div class="card"><h2>Ученики</h2>';
+    rows.forEach(function(r){
+     var ts=topicScores(r.answers||[]),dt=new Date(r.ts||0);
+     var pct=Math.round(r.score/Q.length*100);
+     h+='<details><summary><span>'+esc(r.name)+'</span><span class="pill '+(pct>=70?"good":"bad")+'">'+r.score+'/'+Q.length+'</span></summary>'+
+     '<div class="mu">'+dt.toLocaleString("ru-RU")+'</div>';
+     for(var t in ts)h+='<div class="row"><span>'+T[t]+'</span><span class="pill">'+ts[t][0]+'/'+ts[t][1]+'</span></div>';
+     var m="";(r.answers||[]).forEach(function(a,k){if(Q[k]&&a!==Q[k][3])m+='<div class="wr">'+(k+1)+'. '+esc(Q[k][1])+'<br><span class="bad">Ответил: '+esc(Q[k][2][a])+'</span> · <span class="good">Верно: '+esc(Q[k][2][Q[k][3]])+'</span></div>'});
+     h+=(m||'<div class="wr good" style="background:var(--okb)">Без ошибок</div>')+'</details>';
+    });
+    h+='</div>';
+   }
+   document.getElementById("tl").innerHTML=h;
+  },function(){document.getElementById("tm").textContent="Нет доступа к результатам."});
+ });
+}
+start();
+</script>
+</body>
+</html>
